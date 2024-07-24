@@ -1,0 +1,768 @@
+// import React, {useEffect, useState} from 'react';
+// import {Picker} from '@react-native-picker/picker';
+// import {
+//   View,
+//   Text,
+//   TextInput,
+//   TouchableOpacity,
+//   ScrollView,
+// } from 'react-native';
+// import {
+//   widthPercentageToDP as wp,
+//   heightPercentageToDP as hp,
+// } from 'react-native-responsive-screen';
+// import {url} from './URL';
+
+// const Chiefguest = ({navigation, route}) => {
+//   const {
+//     eventname,
+//     venue,
+//     startdate,
+//     starttime,
+//     enddate,
+//     endtime,
+//     selectedDiscipline,
+//     selectedSemesters,
+//     selectedSections,
+//   } = route.params;
+//   const [cgName, setcgName] = useState('');
+//   const [cgEmail, setcgEmail] = useState('');
+//   const [cgnumber, setcgnumber] = useState('');
+//   const [cgstatus, setcgstatus] = useState();
+//   const [eventType, setEventType] = useState('unpaid');
+//   const [amount, setAmount] = useState('');
+
+//   // const {
+//   //   eventname,
+//   //   venue,
+//   //   startdate,
+//   //   starttime,
+//   //   enddate,
+//   //   endtime,
+//   //   semester,
+//   //   dicipline,
+//   //   section,
+//   //   gender,
+//   //   eventType,
+//   // } = route.params;
+
+//   useEffect(() => {
+//     console.log('CGG');
+//     console.log(eventname);
+//     console.log(venue);
+//     console.log(startdate);
+//     console.log(starttime);
+//     console.log(enddate);
+//     console.log(endtime);
+//     console.log('Selected Section', selectedSections);
+//     // console.log('Selected Dicipline', selectedDiscipline);
+//     // console.log('Selected Semester', selectedSemesters);
+//     // console.log(eventname);
+//     // console.log(venue);
+//     // console.log(startdate);
+//     // console.log(starttime);
+//     // console.log(enddate);
+//     // console.log(endtime);
+//     // console.log(semester);
+//     // console.log(dicipline);
+//     // console.log(section);
+//     // console.log(gender);
+//     // console.log(cgName);
+//     // console.log(cgEmail);
+//     // console.log(cgnumber);
+//     // console.log(cgstatus);
+//     // console.log('et',eventType);
+//   }, []);
+
+//   const Nextbutton = async () => {
+//     console.log('Selected Section', selectedSections);
+//     console.log('Event Name', eventname);
+//     console.log('Venue', venue);
+//     console.log('StartDate', startdate);
+//     console.log('StartTime', starttime);
+//     console.log('EndDate', enddate);
+//     console.log('EndTime', endtime);
+//     console.log('Name', cgName);
+//     console.log('Email', cgEmail);
+//     console.log('Number', cgnumber);
+//     let list = {
+//       EventName: eventname,
+//       EventStatus: '1',
+//       starttime: starttime,
+//       Endtime: endtime,
+//       startdate: startdate,
+//       enddate: enddate,
+//       userid: '1',
+//       societyid: '1',
+//       Venuename: venue,
+//       CG_Name: cgName,
+//       Email: cgEmail,
+//       number: cgnumber,
+//       Cheif_Status: '1',
+//       secList: selectedSections,
+//     };
+//     console.log(list);
+//     // const response = await fetch(url + 'CreateEvents/EventCreation', {
+//     //   method: 'POST',
+//     //   headers: {
+//     //     'Content-Type': 'application/json',
+//     //   },
+//     //   body: JSON.stringify(list),
+//     // });
+
+//     // if (response.ok) {
+//     //   var ans = await response.json();
+//     //   console.log(ans);
+//     //   Alert.alert(ans);
+//     //   navigation.navigate('QR Code', {eventid: ans});
+//     // } else {
+//     // }
+//   };
+
+//   return (
+//     <ScrollView style={{backgroundColor: '#83f2cd', flex: 1}}>
+//       <Text
+//         style={{
+//           fontSize: hp(4),
+//           color: 'black',
+//           fontWeight: 'bold',
+//           textAlign: 'center',
+//         }}>
+//         Chief Guest Info
+//       </Text>
+//       <View style={{marginTop: hp(0.5)}}>
+//         <Text
+//           style={{
+//             fontSize: hp(3),
+//             margin: 10,
+//             color: 'black',
+//             fontWeight: '600',
+//             marginLeft: hp(9),
+//           }}>
+//           Guest Name
+//         </Text>
+//         <TextInput
+//           style={{
+//             borderWidth: 2,
+//             borderRadius: 20,
+//             width: wp(64),
+//             fontSize: hp(2),
+//             fontWeight: '800',
+//             textAlign: 'center',
+//             marginLeft: hp(9),
+//           }}
+//           value={cgName}
+//           placeholder="Enter Name"
+//           onChangeText={text => setcgName(text)}
+//         />
+//       </View>
+
+//       <View style={{marginTop: hp(0.5)}}>
+//         <Text
+//           style={{
+//             fontSize: hp(3),
+//             margin: 10,
+//             color: 'black',
+//             fontWeight: '600',
+//             marginLeft: hp(9),
+//           }}>
+//           Email
+//         </Text>
+//         <TextInput
+//           style={{
+//             borderWidth: 2,
+//             borderRadius: 20,
+//             width: wp(64),
+//             fontSize: hp(2),
+//             fontWeight: '800',
+//             textAlign: 'center',
+//             marginLeft: hp(9),
+//           }}
+//           value={cgEmail}
+//           placeholder="abc5937@gmail.com"
+//           onChangeText={text => setcgEmail(text)}
+//         />
+//       </View>
+
+//       <View style={{marginTop: hp(0.5)}}>
+//         <Text
+//           style={{
+//             fontSize: hp(3),
+//             margin: 10,
+//             color: 'black',
+//             fontWeight: '600',
+//             marginLeft: hp(9),
+//           }}>
+//           Contact Number
+//         </Text>
+//         <TextInput
+//           style={{
+//             borderWidth: 2,
+//             borderRadius: 20,
+//             width: wp(64),
+//             fontSize: hp(2),
+//             fontWeight: '800',
+//             textAlign: 'center',
+//             marginLeft: hp(9),
+//           }}
+//           value={cgnumber}
+//           placeholder="03145125025"
+//           onChangeText={text => setcgnumber(text)}
+//         />
+//       </View>
+//       <Text
+//         style={{
+//           fontSize: hp(3),
+//           color: 'black',
+//           fontWeight: 'bold',
+//           textAlign: 'center',
+//           margin: 7,
+//         }}>
+//         Status
+//       </Text>
+//       <Picker
+//         selectedValue={cgstatus}
+//         onValueChange={val => {
+//           setcgstatus(val);
+//         }}
+//         style={{
+//           alignItems: 'center',
+//           backgroundColor: '#f0f0f0',
+//           borderRadius: 9,
+//           borderWidth: 1,
+//           paddingVertical: 10,
+//           paddingHorizontal: 20,
+//           borderColor: '#ccc',
+//           width: '60%', // Adjust the width as needed
+//           alignSelf: 'center', // Center the Picker horizontally
+//           marginBottom: 20,
+//           color: 'black',
+//         }}>
+//         <Picker.Item label="VIP" value="VIP" />
+//         <Picker.Item label="V-VIP" value="V-VIP" />
+//       </Picker>
+//       <View style={{marginTop: hp(0.5)}}>
+//         <Text
+//           style={{
+//             fontSize: hp(3),
+//             marginTop: hp(0),
+//             color: 'black',
+//             fontWeight: '600',
+//             marginLeft: hp(9),
+//           }}>
+//           Event Type
+//         </Text>
+//         <View
+//           style={{
+//             flexDirection: 'row',
+//             marginLeft: hp(9),
+//             alignItems: 'center',
+//           }}>
+//           <TouchableOpacity
+//             style={{flexDirection: 'row', alignItems: 'center'}}
+//             onPress={() => setEventType('unpaid')}>
+//             <View
+//               style={{
+//                 height: 24,
+//                 width: 24,
+//                 borderRadius: 12,
+//                 borderWidth: 2,
+//                 borderColor: eventType === 'unpaid' ? 'black' : '#ccc',
+//                 alignItems: 'center',
+//                 justifyContent: 'center',
+//               }}>
+//               {eventType === 'unpaid' && (
+//                 <View
+//                   style={{
+//                     height: 12,
+//                     width: 12,
+//                     borderRadius: 6,
+//                     backgroundColor: eventType === 'unpaid' ? 'black' : '#ccc',
+//                   }}
+//                 />
+//               )}
+//             </View>
+//             <Text
+//               style={{
+//                 fontSize: hp(2.5),
+//                 color: 'black',
+//                 marginLeft: hp(1),
+//               }}>
+//               Unpaid
+//             </Text>
+//           </TouchableOpacity>
+//           <TouchableOpacity
+//             style={{
+//               flexDirection: 'row',
+//               alignItems: 'center',
+//               marginLeft: hp(3),
+//             }}
+//             onPress={() => setEventType('paid')}>
+//             <View
+//               style={{
+//                 height: 24,
+//                 width: 24,
+//                 borderRadius: 12,
+//                 borderWidth: 2,
+//                 borderColor: eventType === 'paid' ? 'black' : '#ccc',
+//                 alignItems: 'center',
+//                 justifyContent: 'center',
+//               }}>
+//               {eventType === 'paid' && (
+//                 <View
+//                   style={{
+//                     height: 12,
+//                     width: 12,
+//                     borderRadius: 6,
+//                     backgroundColor: eventType === 'paid' ? 'black' : '#ccc',
+//                   }}
+//                 />
+//               )}
+//             </View>
+//             <Text
+//               style={{
+//                 fontSize: hp(2.5),
+//                 color: 'black',
+//                 marginLeft: hp(1),
+//               }}>
+//               Paid
+//             </Text>
+//           </TouchableOpacity>
+//         </View>
+//       </View>
+//       {eventType === 'paid' && (
+//         <View style={{marginTop: hp(0.5)}}>
+//           <Text
+//             style={{
+//               fontSize: hp(3),
+//               margin: 10,
+//               color: 'black',
+//               fontWeight: '600',
+//               marginLeft: hp(9),
+//             }}>
+//             Amount
+//           </Text>
+//           <TextInput
+//             style={{
+//               borderWidth: 2,
+//               borderRadius: 20,
+//               width: wp(64),
+//               fontSize: hp(2),
+//               fontWeight: '800',
+//               textAlign: 'center',
+//               marginLeft: hp(9),
+//             }}
+//             value={amount}
+//             placeholder="Enter Amount"
+//             onChangeText={text => setAmount(text)}
+//           />
+//         </View>
+//       )}
+//       <TouchableOpacity onPress={Nextbutton}>
+//         <View
+//           style={{
+//             backgroundColor: '#b8605a',
+//             padding: 5,
+//             borderRadius: 50,
+//             marginLeft: hp(7),
+
+//             width: wp(70),
+//             height: hp(5),
+//             margin: hp(2),
+//             marginTop: hp(3),
+//             alignItems: 'center',
+//           }}>
+//           <Text style={{color: 'white', marginLeft: hp(1), fontSize: hp(3)}}>
+//             Generate-QR-Code
+//           </Text>
+//         </View>
+//       </TouchableOpacity>
+//     </ScrollView>
+//   );
+// };
+
+// export default Chiefguest;
+
+import React, {useEffect, useState} from 'react';
+import {Picker} from '@react-native-picker/picker';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import {url} from './URL';
+
+const Chiefguest = ({navigation, route}) => {
+  const {
+    eventname,
+    venue,
+    startdate,
+    starttime,
+    enddate,
+    endtime,
+    allowGuest,
+    selectedDiscipline,
+    selectedSemesters,
+    selectedSections,
+  } = route.params;
+
+  const [cgName, setcgName] = useState('');
+  const [cgEmail, setcgEmail] = useState('');
+  const [cgnumber, setcgnumber] = useState('');
+  const [cgstatus, setcgstatus] = useState();
+  const [eventType, setEventType] = useState('unpaid');
+  const [amount, setAmount] = useState('');
+
+  useEffect(() => {
+    console.log('Event Name:', eventname);
+    console.log('Venue:', venue);
+    console.log('Start Date:', startdate);
+    console.log('Start Time:', starttime);
+    console.log('End Date:', enddate);
+    console.log('End Time:', endtime);
+    console.log('Allow Guest', allowGuest);
+    console.log('Selected Discipline:', selectedDiscipline);
+    console.log('Selected Semesters:', selectedSemesters);
+    console.log('Selected Sections:', selectedSections);
+  }, []);
+
+  const Nextbutton = async () => {
+    console.log('Selected Sections:', selectedSections);
+    console.log('Event Name:', eventname);
+    console.log('Venue:', venue);
+    console.log('Start Date:', startdate);
+    console.log('Start Time:', starttime);
+    console.log('End Date:', enddate);
+    console.log('End Time:', endtime);
+    console.log('Chief Guest Name:', cgName);
+    console.log('Chief Guest Email:', cgEmail);
+    console.log('Chief Guest Number:', cgnumber);
+
+    const formattedSections = [];
+
+    // Extract and format selectedSections
+    Object.keys(selectedSections).forEach(discipline => {
+      Object.keys(selectedSections[discipline]).forEach(semester => {
+        Object.keys(selectedSections[discipline][semester]).forEach(
+          sectionId => {
+            formattedSections.push({
+              discipline,
+              semester,
+              secId: sectionId,
+              secName: `Section ${sectionId}`, // Adjust if you have the section name somewhere
+            });
+          },
+        );
+      });
+    });
+
+    console.log('Formatted Sections:', formattedSections);
+    console.log('Formatted Sections:', eventType);
+
+    let list = {
+      EventName: eventname,
+      EventStatus: 'Active',
+      starttime: starttime,
+      Endtime: endtime,
+      startdate: startdate,
+      enddate: enddate,
+      userid: '1',
+      societyid: '1',
+      Venuename: venue,
+      Allow_Guest: allowGuest,
+      Event_Type: eventType,
+      CG_Name: cgName,
+      Email: cgEmail,
+      number: cgnumber,
+      Cheif_Status: '1',
+      secList: formattedSections,
+    };
+    console.log('Formatted List:', list);
+
+    const response = await fetch(url + 'CreateEvents/EventCreation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(list),
+    });
+
+    if (response.ok) {
+      var ans = await response.json();
+      console.log(ans);
+      // Alert.alert(ans);
+      navigation.navigate('QR Code', {eventid: ans});
+    } else {
+      console.log('Error in API call');
+    }
+  };
+
+  return (
+    <ScrollView style={{backgroundColor: '#83f2cd', flex: 1}}>
+      <Text
+        style={{
+          fontSize: hp(4),
+          color: 'black',
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}>
+        Chief Guest Info
+      </Text>
+      <View style={{marginTop: hp(0.5)}}>
+        <Text
+          style={{
+            fontSize: hp(3),
+            margin: 10,
+            color: 'black',
+            fontWeight: '600',
+            marginLeft: hp(9),
+          }}>
+          Guest Name
+        </Text>
+        <TextInput
+          style={{
+            borderWidth: 2,
+            borderRadius: 20,
+            width: wp(64),
+            fontSize: hp(2),
+            fontWeight: '800',
+            textAlign: 'center',
+            marginLeft: hp(9),
+          }}
+          value={cgName}
+          placeholder="Enter Name"
+          onChangeText={text => setcgName(text)}
+        />
+      </View>
+
+      <View style={{marginTop: hp(0.5)}}>
+        <Text
+          style={{
+            fontSize: hp(3),
+            margin: 10,
+            color: 'black',
+            fontWeight: '600',
+            marginLeft: hp(9),
+          }}>
+          Email
+        </Text>
+        <TextInput
+          style={{
+            borderWidth: 2,
+            borderRadius: 20,
+            width: wp(64),
+            fontSize: hp(2),
+            fontWeight: '800',
+            textAlign: 'center',
+            marginLeft: hp(9),
+          }}
+          value={cgEmail}
+          placeholder="abc5937@gmail.com"
+          onChangeText={text => setcgEmail(text)}
+        />
+      </View>
+
+      <View style={{marginTop: hp(0.5)}}>
+        <Text
+          style={{
+            fontSize: hp(3),
+            margin: 10,
+            color: 'black',
+            fontWeight: '600',
+            marginLeft: hp(9),
+          }}>
+          Contact Number
+        </Text>
+        <TextInput
+          style={{
+            borderWidth: 2,
+            borderRadius: 20,
+            width: wp(64),
+            fontSize: hp(2),
+            fontWeight: '800',
+            textAlign: 'center',
+            marginLeft: hp(9),
+          }}
+          value={cgnumber}
+          placeholder="03145125025"
+          onChangeText={text => setcgnumber(text)}
+        />
+      </View>
+      <Text
+        style={{
+          fontSize: hp(3),
+          color: 'black',
+          fontWeight: 'bold',
+          textAlign: 'center',
+          margin: 7,
+        }}>
+        Status
+      </Text>
+      <Picker
+        selectedValue={cgstatus}
+        onValueChange={val => {
+          setcgstatus(val);
+        }}
+        style={{
+          alignItems: 'center',
+          backgroundColor: '#f0f0f0',
+          borderRadius: 9,
+          borderWidth: 1,
+          paddingVertical: 10,
+          paddingHorizontal: 20,
+          borderColor: '#ccc',
+          width: '60%', // Adjust the width as needed
+          alignSelf: 'center', // Center the Picker horizontally
+          marginBottom: 20,
+          color: 'black',
+        }}>
+        <Picker.Item label="VIP" value="VIP" />
+        <Picker.Item label="V-VIP" value="V-VIP" />
+      </Picker>
+      <View style={{marginTop: hp(0.5)}}>
+        <Text
+          style={{
+            fontSize: hp(3),
+            marginTop: hp(0),
+            color: 'black',
+            fontWeight: '600',
+            marginLeft: hp(9),
+          }}>
+          Event Type
+        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginLeft: hp(9),
+            alignItems: 'center',
+          }}>
+          <TouchableOpacity
+            style={{flexDirection: 'row', alignItems: 'center'}}
+            onPress={() => setEventType('unpaid')}>
+            <View
+              style={{
+                height: 24,
+                width: 24,
+                borderRadius: 12,
+                borderWidth: 2,
+                borderColor: eventType === 'unpaid' ? 'black' : '#ccc',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              {eventType === 'unpaid' && (
+                <View
+                  style={{
+                    height: 12,
+                    width: 12,
+                    borderRadius: 6,
+                    backgroundColor: eventType === 'unpaid' ? 'black' : '#ccc',
+                  }}
+                />
+              )}
+            </View>
+            <Text
+              style={{
+                fontSize: hp(2.5),
+                color: 'black',
+                marginLeft: hp(1),
+              }}>
+              Unpaid
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginLeft: hp(3),
+            }}
+            onPress={() => setEventType('paid')}>
+            <View
+              style={{
+                height: 24,
+                width: 24,
+                borderRadius: 12,
+                borderWidth: 2,
+                borderColor: eventType === 'paid' ? 'black' : '#ccc',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              {eventType === 'paid' && (
+                <View
+                  style={{
+                    height: 12,
+                    width: 12,
+                    borderRadius: 6,
+                    backgroundColor: eventType === 'paid' ? 'black' : '#ccc',
+                  }}
+                />
+              )}
+            </View>
+            <Text
+              style={{
+                fontSize: hp(2.5),
+                color: 'black',
+                marginLeft: hp(1),
+              }}>
+              Paid
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      {eventType === 'paid' && (
+        <View style={{marginTop: hp(0.5)}}>
+          <Text
+            style={{
+              fontSize: hp(3),
+              margin: 10,
+              color: 'black',
+              fontWeight: '600',
+              marginLeft: hp(9),
+            }}>
+            Amount
+          </Text>
+          <TextInput
+            style={{
+              borderWidth: 2,
+              borderRadius: 20,
+              width: wp(64),
+              fontSize: hp(2),
+              fontWeight: '800',
+              textAlign: 'center',
+              marginLeft: hp(9),
+            }}
+            value={amount}
+            placeholder="Enter Amount"
+            onChangeText={text => setAmount(text)}
+          />
+        </View>
+      )}
+      <TouchableOpacity onPress={Nextbutton}>
+        <View
+          style={{
+            backgroundColor: '#b8605a',
+            padding: 5,
+            borderRadius: 50,
+            marginLeft: hp(7),
+
+            width: wp(70),
+            height: hp(5),
+            margin: hp(2),
+            marginTop: hp(3),
+            alignItems: 'center',
+          }}>
+          <Text style={{color: 'white', marginLeft: hp(1), fontSize: hp(3)}}>
+            Generate-QR-Code
+          </Text>
+        </View>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
+
+export default Chiefguest;

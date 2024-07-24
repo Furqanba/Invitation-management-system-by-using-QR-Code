@@ -1,0 +1,168 @@
+import React from 'react'
+import  { useState } from 'react';
+
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+
+function Signup({navigation}) {
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const[email,setemail]=useState('');
+  const[mobilenumber,setmobilenumber]=useState('');
+  const[confmpass,setconfmpass]=useState('');
+  const [loginConfig, setLoginConfig] = useState('');
+  
+    const[signup,setsignup]=useState('');
+
+  function handlesignin() {
+  //   if (username === '20-Arid-3627' && password === '12345') {
+  //     setLoginConfig(Alert.alert("Succesfully Login"));
+      
+  //   } else {
+  //     setLoginConfig(Alert.alert('Invalid login'));
+     
+  //   }
+  // }
+setLoginConfig(Alert.alert("Register Suceesfully"));
+  }
+  function signuphandle(){
+    setsignup(Alert.alert("Welcome to sign Up page"))
+  }
+
+  return (
+
+    
+    <View style={{backgroundColor:'#83f2cd',flex:1,}}>
+      <View style={{marginTop:100,}}>
+        <View style={{flexDirection:'row',  }}>
+      
+
+      </View>
+      <Text style={{ fontSize: 40, color: 'black', fontWeight: 'bold', marginTop: 20,marginLeft:50}}>
+        Sign Up
+      </Text>
+      <View style={{ alignSelf: 'center' }}>
+        <TextInput
+          style={{ borderWidth: 2, borderRadius: 20, width: 300, marginTop: 20 }}
+          placeholder="User Name"
+          onChangeText={(text) => setUsername(text)}
+        />
+
+        <TextInput
+          style={{ borderWidth: 2, borderRadius: 20, width: 300, marginTop: 20 }}
+          placeholder="abc@gmail.com"
+          
+          onChangeText={(text) => setemail(text)}
+        />
+           <TextInput
+          style={{ borderWidth: 2, borderRadius: 20, width: 300, marginTop: 20 }}
+          placeholder="Mobile Number"
+          
+          onChangeText={(text) => setmobilenumber(text)}
+        />
+           <TextInput
+          style={{ borderWidth: 2, borderRadius: 20, width: 300, marginTop: 20 }}
+          placeholder="Pasword"
+          secureTextEntry={true}
+          onChangeText={(text) => setPassword(text)}
+        />
+           <TextInput
+          style={{ borderWidth: 2, borderRadius: 20, width: 300, marginTop: 20 }}
+          placeholder="confirm pasword"
+          secureTextEntry={true}
+          onChangeText={(text) => setconfmpass(text)}
+        />
+      </View>
+      <View style={{ marginTop: 30 }}>
+        <TouchableOpacity onPress={handlesignin}>
+          <View
+            style={{
+              backgroundColor: 'blue',
+              padding: 10,
+              borderRadius: 50,
+              marginLeft: 70,
+              marginRight: 70,
+            }}
+          >
+            <Text style={{ color: 'white', textAlign: 'center' }}>Sign In</Text>
+
+          </View>
+        </TouchableOpacity>
+        
+        <Text>{loginConfig}</Text>
+        <Text style={{ fontSize: 30, color: 'black', fontWeight: 'bold', marginTop: 10, textAlign: 'center',}}>OR</Text>
+        <Text style={{fontSize: 25, color: 'black', fontWeight: 'bold', marginTop: 20,textAlign:'center'}}>Already have an account? </Text>
+        <TouchableOpacity onPress={signuphandle}>
+          <View>
+          
+            <Text style={{fontSize: 25, color: 'blue', fontWeight: 'bold', marginTop: 20,textAlign:'center' }}>Sign In</Text>
+
+          </View>
+          </TouchableOpacity>
+      </View>
+    </View>
+    </View>
+    
+      
+    
+  );
+
+
+
+
+
+  import React from 'react';
+import { View, Text, Image, Pressable, Alert } from 'react-native';
+const createeventimage = require("./images/vecteezy_3d-calendar-marked-date-and-time-for-reminder-day-in-purple_17217991.png");
+const pendingevent = require("./images/pendingeventimage.png");
+const addgusts = require("./images/addgust.png");
+const Page1 = ({ navigation }) => {
+  function pres() {
+    Alert.alert("Welcome to create");
+  }
+  function pending() {
+    Alert.alert("pendings Events")
+  }
+  return (
+
+    <View style={{ backgroundColor: '#83f2cd', flex: 1, }}>
+
+      <Text style={{ fontSize: 50, fontWeight: 'bold', color: "white", textAlign: 'center' }}>
+        Welcome
+
+      </Text>
+      <View style={{ margin: 25, flexDirection: "row" }}>
+        <Pressable
+          style={({ pressed }) => { return { opacity: pressed ? 0 : 1 } }}
+          onPress={pres}
+        >
+          <Image source={createeventimage} style={{ width: 150, height: 150 }} />
+          <Text style={{ fontSize: 27, color: "black", fontWeight: 'bold' }}>Create Event</Text>
+        </Pressable>
+        <Pressable
+          style={({ pressed }) => { return { opacity: pressed ? 0 : 1 } }}
+          onPress={pending}
+        >
+          <Image source={pendingevent} style={{ width: 150, height: 150, marginLeft: 120 }} />
+          <Text style={{ fontSize: 27, color: "black", fontWeight: 'bold', marginLeft: 100 }}>Pending Events</Text>
+        </Pressable>
+        <Pressable
+          style={({ pressed }) => { return { opacity: pressed ? 0 : 1 } }}
+          onPress={pending}
+        >
+          <Image source={addgusts} style={{ width: 150, height: 150, marginLeft: 120 }} />
+          <Text style={{ fontSize: 27, color: "black", fontWeight: 'bold', marginLeft: 100 }}>Add Gusts</Text>
+        </Pressable>
+        
+
+      </View>
+      
+    </View>
+      
+)          
+}
+export default Page1; 
+}
+
+
+export default Signup;
